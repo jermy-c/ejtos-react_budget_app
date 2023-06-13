@@ -24,12 +24,20 @@ const ExpenseItem = (props) => {
         });
 
     }
+    const { currency } = useContext(AppContext);
 
     return (
         <tr>
         <td>{props.name}</td>
-        <td>£{props.cost}</td>
-        <td><button onClick={event=> increaseAllocation(props.name)}>+</button></td>
+        <td>{ currency }{props.cost}</td>
+        <td><button 
+        onClick={event=> increaseAllocation(props.name)}
+        style={{ borderRadius: '50%', backgroundColor: 'green', color: 'white', width: '2em', height: '2em', border: 'none', fontWeight: 'black', fontSize: '1.5em'}}
+        >+</button></td>
+                <td><button 
+        onClick={event=> increaseAllocation(props.name)}
+        style={{ borderRadius: '50%', backgroundColor: 'red', color: 'white', width: '2em', height: '2em', border: 'none', fontWeight: 'black', fontSize: '1.5em'}}
+        >-</button></td>
         <td><TiDelete size='1.5em' onClick={handleDeleteExpense}></TiDelete></td>
         </tr>
     );
